@@ -76,6 +76,8 @@ class HorizontalBar(AbstractBar):
 
     def set_progress(self, current=0.0, total=100.0):
         self.progress = total > 0 and current / total or 0.0
+        if(self.progress > 1):
+            self.progress = 1
         self.current = current
         self.total = total
         self._invalidate()
